@@ -11,7 +11,8 @@ import Parse
 @UIApplicationMain
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+  
+  //var parseLoginHelper: ParseLoginHelper!
   var window: UIWindow?
 
 
