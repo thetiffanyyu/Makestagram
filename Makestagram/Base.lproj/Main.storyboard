@@ -144,6 +144,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="4Cc-P0-uI7" id="RZ3-NP-SeD"/>
+                                    <outlet property="delegate" destination="4Cc-P0-uI7" id="fah-6u-aMX"/>
                                 </connections>
                             </tableView>
                         </subviews>
