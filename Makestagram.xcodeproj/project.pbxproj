@@ -16,6 +16,7 @@
 		4C746B091D2192F50013785B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C746B081D2192F50013785B /* Post.swift */; };
 		4C746B0F1D21CE300013785B /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C746B0E1D21CE300013785B /* PostTableViewCell.swift */; };
 		4C746B111D21D1B90013785B /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C746B101D21D1B90013785B /* ParseHelper.swift */; };
+		4C746B171D2342690013785B /* FriendSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C746B161D2342690013785B /* FriendSearchTableViewCell.swift */; };
 		62551B961B06C2F5000913E4 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B951B06C2F5000913E4 /* Social.framework */; };
 		62551B981B06C2FD000913E4 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B971B06C2FD000913E4 /* Accounts.framework */; };
 		62551B9A1B06C31F000913E4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B991B06C31F000913E4 /* CoreLocation.framework */; };
@@ -75,6 +76,7 @@
 		4C746B081D2192F50013785B /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		4C746B0E1D21CE300013785B /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		4C746B101D21D1B90013785B /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
+		4C746B161D2342690013785B /* FriendSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchTableViewCell.swift; sourceTree = "<group>"; };
 		62551B951B06C2F5000913E4 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		62551B971B06C2FD000913E4 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		62551B991B06C31F000913E4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -157,6 +159,7 @@
 		4C746B0A1D21CDF90013785B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4C746B151D2342370013785B /* FriendSearch */,
 				4C746B0B1D21CDF90013785B /* Timeline */,
 			);
 			path = Views;
@@ -168,6 +171,14 @@
 				4C746B0E1D21CE300013785B /* PostTableViewCell.swift */,
 			);
 			path = Timeline;
+			sourceTree = "<group>";
+		};
+		4C746B151D2342370013785B /* FriendSearch */ = {
+			isa = PBXGroup;
+			children = (
+				4C746B161D2342690013785B /* FriendSearchTableViewCell.swift */,
+			);
+			path = FriendSearch;
 			sourceTree = "<group>";
 		};
 		62551B621B06BF33000913E4 /* Frameworks */ = {
@@ -364,6 +375,7 @@
 				TargetAttributes = {
 					62C8C1DF1B06BD6500DC3EA7 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = H7VU3Z6H83;
 					};
 					62C8C1F41B06BD6500DC3EA7 = {
 						CreatedOnToolsVersion = 6.3;
@@ -523,6 +535,7 @@
 				4C2FF10C1D1DB64F00CA7870 /* TimelineViewController.swift in Sources */,
 				4C746B061D1DE5090013785B /* PhotoTakingHelper.swift in Sources */,
 				4C2FF10E1D1DB68F00CA7870 /* PhotoViewController.swift in Sources */,
+				4C746B171D2342690013785B /* FriendSearchTableViewCell.swift in Sources */,
 				62C8C1E61B06BD6500DC3EA7 /* AppDelegate.swift in Sources */,
 				627718971B0A581700AF5C6E /* FilterViewController.swift in Sources */,
 				4C746B111D21D1B90013785B /* ParseHelper.swift in Sources */,
@@ -658,14 +671,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Makestagram/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "Make-School.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = Tinstagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Makestagram/Makestagram-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -677,14 +693,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Makestagram/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "Make-School.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = Tinstagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Makestagram/Makestagram-Bridging-Header.h";
 			};
 			name = Release;
