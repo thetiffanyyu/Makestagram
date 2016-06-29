@@ -8,18 +8,20 @@
 import Foundation
 import Parse
 import Bond
+import ConvenienceKit
 
 // 1
 class Post : PFObject, PFSubclassing {
     var image: Observable<UIImage?> = Observable(nil)
     var photoUploadTask: UIBackgroundTaskIdentifier?
     var likes: Observable<[PFUser]?> = Observable(nil)
+    static var imageCache: NSCacheSwift<String, UIImage>!
+
     // 2
     @NSManaged var imageFile: PFFile?
     @NSManaged var user: PFUser?
     
-    
-    //MARK: PFSubclassing Protocol
+        //MARK: PFSubclassing Protocol
     
     // 3
     static func parseClassName() -> String {
@@ -30,14 +32,16 @@ class Post : PFObject, PFSubclassing {
     override init () {
         super.init()
     }
-    
     override class func initialize() {
         var onceToken : dispatch_once_t = 0;
         dispatch_once(&onceToken) {
             // inform Parse about this subclass
             self.registerSubclass()
+            // 1
+            Post.imageCache = NSCacheSwift<String, UIImage>()
         }
     }
+
     func fetchLikes() {
         // 1
         if (likes.value != nil) {
@@ -48,7 +52,10 @@ class Post : PFObject, PFSubclassing {
         ParseHelper.likesForPost(self, completionBlock: { (likes: [PFObject]?, error: NSError?) -> Void in
             // 3
             let validLikes = likes?.filter { like in like[ParseHelper.ParseLikeFromUser] != nil }
-            
+            if let error = error {
+                ErrorHandling.defaultErrorHandler(error)
+            }
+
             // 4
             self.likes.value = validLikes?.map { like in
                 let fromUser = like[ParseHelper.ParseLikeFromUser] as! PFUser
@@ -93,19 +100,30 @@ class Post : PFObject, PFSubclassing {
             
             saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                 UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
+                if let error = error {
+                    ErrorHandling.defaultErrorHandler(error)
+                }
+
             }
         }
     }
     func downloadImage() {
-        // if image is not downloaded yet, get it
         // 1
+        image.value = Post.imageCache[self.imageFile!.name]
+        
+        // if image is not downloaded yet, get it
         if (image.value == nil) {
-            // 2
+            
             imageFile?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
+                if let error = error {
+                    ErrorHandling.defaultErrorHandler(error)
+                }
+
                 if let data = data {
                     let image = UIImage(data: data, scale:1.0)!
-                    // 3
                     self.image.value = image
+                    // 2
+                    Post.imageCache[self.imageFile!.name] = image
                 }
             }
         }

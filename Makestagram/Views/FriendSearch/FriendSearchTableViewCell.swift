@@ -16,8 +16,12 @@ protocol FriendSearchTableViewCellDelegate: class {
 
 class FriendSearchTableViewCell: UITableViewCell {
     
+   
+ 
+    
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var followButton: UIButton!
+    
     weak var delegate: FriendSearchTableViewCellDelegate?
     
     var user: PFUser? {

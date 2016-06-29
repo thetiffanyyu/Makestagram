@@ -27,15 +27,16 @@ struct ErrorHandling {
     
     let window = UIApplication.sharedApplication().windows[0] 
     window.rootViewController?.presentViewControllerFromTopViewController(alert, animated: true, completion: nil)
-  }
+        }
+static func errorHandlingCallback(success: Bool, error: NSError?) -> Void {
+    if let error = error {
+        ErrorHandling.defaultErrorHandler(error)
+    }
+}
+
+}
   
-  /** 
+  /**
     A PFBooleanResult callback block that only handles error cases. You can pass this to completion blocks of Parse Requests 
   */
-  static func errorHandlingCallback(success: Bool, error: NSError?) -> Void {
-    if let error = error {
-      ErrorHandling.defaultErrorHandler(error)
-    }
-  }
   
-}

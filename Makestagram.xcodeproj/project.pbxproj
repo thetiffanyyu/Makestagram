@@ -17,6 +17,7 @@
 		4C746B0F1D21CE300013785B /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C746B0E1D21CE300013785B /* PostTableViewCell.swift */; };
 		4C746B111D21D1B90013785B /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C746B101D21D1B90013785B /* ParseHelper.swift */; };
 		4C746B171D2342690013785B /* FriendSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C746B161D2342690013785B /* FriendSearchTableViewCell.swift */; };
+		4C746B1A1D24779E0013785B /* PostSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C746B191D24779E0013785B /* PostSectionHeaderView.swift */; };
 		62551B961B06C2F5000913E4 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B951B06C2F5000913E4 /* Social.framework */; };
 		62551B981B06C2FD000913E4 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B971B06C2FD000913E4 /* Accounts.framework */; };
 		62551B9A1B06C31F000913E4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B991B06C31F000913E4 /* CoreLocation.framework */; };
@@ -77,6 +78,7 @@
 		4C746B0E1D21CE300013785B /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		4C746B101D21D1B90013785B /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		4C746B161D2342690013785B /* FriendSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchTableViewCell.swift; sourceTree = "<group>"; };
+		4C746B191D24779E0013785B /* PostSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostSectionHeaderView.swift; sourceTree = "<group>"; };
 		62551B951B06C2F5000913E4 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		62551B971B06C2FD000913E4 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		62551B991B06C31F000913E4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -159,6 +161,7 @@
 		4C746B0A1D21CDF90013785B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4C746B181D24778B0013785B /* PostHeader */,
 				4C746B151D2342370013785B /* FriendSearch */,
 				4C746B0B1D21CDF90013785B /* Timeline */,
 			);
@@ -179,6 +182,14 @@
 				4C746B161D2342690013785B /* FriendSearchTableViewCell.swift */,
 			);
 			path = FriendSearch;
+			sourceTree = "<group>";
+		};
+		4C746B181D24778B0013785B /* PostHeader */ = {
+			isa = PBXGroup;
+			children = (
+				4C746B191D24779E0013785B /* PostSectionHeaderView.swift */,
+			);
+			path = PostHeader;
 			sourceTree = "<group>";
 		};
 		62551B621B06BF33000913E4 /* Frameworks */ = {
@@ -537,6 +548,7 @@
 				4C2FF10E1D1DB68F00CA7870 /* PhotoViewController.swift in Sources */,
 				4C746B171D2342690013785B /* FriendSearchTableViewCell.swift in Sources */,
 				62C8C1E61B06BD6500DC3EA7 /* AppDelegate.swift in Sources */,
+				4C746B1A1D24779E0013785B /* PostSectionHeaderView.swift in Sources */,
 				627718971B0A581700AF5C6E /* FilterViewController.swift in Sources */,
 				4C746B111D21D1B90013785B /* ParseHelper.swift in Sources */,
 				4C746B0F1D21CE300013785B /* PostTableViewCell.swift in Sources */,

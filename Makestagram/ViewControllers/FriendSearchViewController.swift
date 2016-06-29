@@ -10,8 +10,10 @@ import Parse
 
 class FriendSearchViewController: UIViewController {
     
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+   
     
     // stores all the users that match the current search query
     var users: [PFUser]?
@@ -69,6 +71,10 @@ class FriendSearchViewController: UIViewController {
     func updateList(results: [PFObject]?, error: NSError?) {
         self.users = results as? [PFUser] ?? []
         self.tableView.reloadData()
+        if let error = error {
+            ErrorHandling.defaultErrorHandler(error)
+        }
+
         
     }
     
@@ -83,6 +89,10 @@ class FriendSearchViewController: UIViewController {
         ParseHelper.getFollowingUsersForUser(PFUser.currentUser()!) { (results: [PFObject]?, error: NSError?) -> Void in
             let relations = results ?? []
             // use map to extract the User from a Follow object
+            if let error = error {
+                ErrorHandling.defaultErrorHandler(error)
+            }
+
             self.followingUsers = relations.map {
                 $0.objectForKey(ParseHelper.ParseFollowToUser) as! PFUser
             }
